@@ -1,0 +1,160 @@
+<!DOCTYPE html>  
+<html lang="en">
+  {% load static %}  
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link   rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <style>
+
+      .vertical-menu {
+        width: 200px;        
+        background-color: brown;        
+        
+      }
+      #block1{
+        margin-left:5px;
+        width:200px;
+        float:left;
+        height:65px;
+        background-color:rgb(21, 72, 95);
+        color:whitesmoke;
+        text-align: center;
+        font-weight:bold;
+        font-family:Arial;
+        font-size: 12 px;
+      }
+      #vert{
+        background-color:rgb(21, 72, 95);
+        height:500px; 
+      }
+      .vertical-menu a {          
+        display: block;
+        padding: 20px;
+        height: 120px;
+        text-decoration: none;
+        background-color: rgb(218, 153, 33);
+        color: black;
+        font-weight:bold;
+        font-family:Arial;
+        font-size: 20px;
+      }
+      
+      .vertical-menu a:hover {
+        background-color: #ccc;
+      }
+      
+      .vertical-menu a.active {
+        background-color: #04AA6D;
+        color: white;
+      }
+
+      .navbar{border-radius: 0;
+              margin-bottom: 0;
+              background-color:black;
+              font-size: 18px;
+              font-weight: bolder;
+      }
+      .nav a:hover {
+        color: rgb(240, 233, 233);    
+      }
+
+
+      .navbar-inverse .navbar-brand{color:rgb(194, 225, 229);font-weight:bold;}
+      
+      .navbar-brand{
+        margin: 0;
+        padding: 0;
+      }
+      .logo{
+        height: 50px;
+        padding-right: 15px;
+        padding-left: 5px;
+      }
+      
+      .navbar .navbar-nav > li > a:hover,
+      .navbar .navbar-nav > li > a:focus,
+      .navbar .navbar-nav > .active > a:hover,
+      .navbar .navbar-nav > .active > a:focus {
+          color: black;
+          font-weight: bolder;
+      }
+      .dropdown-menu{
+        background-color: #f7dfc8;
+        color:whitesmoke;
+      }
+
+
+
+
+    </style>
+   </head>  
+<body> 
+    <p></p>
+    <div id="block1" >
+      Jadavpur University Accreditation Management System
+
+    </div>
+    <nav class="navbar navbar-inverse" style="margin-left:215px;">
+       
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a style="color:white;" href="{% url 'login' %}">Home</a></li>
+              <li><a style="color:white;" href="{% url 'faculty' %}">Faculty List</a></li>
+              <li><a style="color:white;" href="{% url 'add-faculty' %}">Add Faculty</a></li>
+              <li><a style="color:white;" href="#">Link</a></li>
+              <li class="dropdown">
+                <a style="color:white;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a  style="color:white;" href="#">Logout</a></li>
+              <li class="dropdown">
+                <a style="color:white;" style="color:white;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div class="vertical-menu" style="float:left;margin:5px;">
+        
+        <a href="#"></a>
+        <a href="#">My Profile</a>
+        <a href="#">Password Change</a>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="#">Link 4</a>
+      </div>
+      
+</body>  
+</html>  

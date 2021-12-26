@@ -1,0 +1,1 @@
+d:/faculty/fvenv/Scripts/activate.bat && cls

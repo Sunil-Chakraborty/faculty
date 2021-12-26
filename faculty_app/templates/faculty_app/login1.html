@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+{{ form.errors }}
+{{ form.non_field_errors }}
+
+  <style>
+    .card-image{
+      height: auto;
+      width:500px; 
+    }
+    .jumbotron {
+        min-width: 585px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        margin: 5px 5px 5px 5px;
+        border: 0.08em solid black;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+    }
+    
+      
+  </style>
+  <body>
+    <p>
+    <div class="container">
+     <div class = "jumbotron">
+      <div class="card card-image" style="background-color: Silver">
+        <div class="auth__header text-center">
+          <a>
+            <img class="avatar rounded-circle" style="width: 150px;" src="{% static 'images/ju_logo.jpg' %}" class="img-responsive logo">
+            </a>
+          <h3 style="color:rgb(27, 28, 109);">Account Login</h3>
+          <p style="color:rgb(158, 17, 17);"> Welcome Back Faculty!</p>
+        </div>
+
+        <form action="{% url 'login' %}" method="POST" class="form auth__form">
+          {% csrf_token %}
+          <!-- Input:Email -->
+          <div class="form__field">
+            <label for="formInput#text" style="color:black;padding:9px;">Email : </label>
+            <input
+              class="input input--text"
+              id="formInput#text"              
+              type="email"
+              name="email"
+              style="margin-left:10px;width:470px;font-weight:bolder;font-size:20px;"
+              placeholder="Enter your email..."
+            />
+          </div>
+
+          <!-- Input:Password -->
+          <div class="form__field">
+            <label for="formInput#password" style="color:black;padding:9px;">Password: </label>
+            <input
+              class="input input--password"
+              id="formInput#passowrd"
+              type="password"
+              name="password"
+              style="margin-left:10px;width:470px;font-weight:bolder;font-size:20px;"
+              placeholder="Enter password"
+            />
+          </div>
+          <div class="auth__actions">
+            <input class="btn btn--sub btn--lg btn-primary" style="margin-left:10px;" type="submit" value="Log In" />
+            <a style="color:rgb(158, 17, 17);margin-left:275px;" href="forgetpassword.html">Forget Password?</a>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    </div>
+    
+    
+  </body>
+
+  
+{% endblock content %}
+

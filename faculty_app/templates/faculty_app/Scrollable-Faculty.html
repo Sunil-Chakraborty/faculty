@@ -1,0 +1,121 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<!--  
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+
+-->
+
+<style>
+    #filter{
+        margin-top:5px;
+        margin-left:215px; 
+        height:50px;
+        width:1287px;
+        font-weight: bolder;
+        font-size:15px;
+        color:white; 
+        background-color: rgb(16, 130, 150)   
+    }
+    #extra{
+        height:400px;        
+    }  
+	.fixTableHead {
+    margin: 5px ;
+	overflow-y: auto;
+	height: 140px;
+    background-color: white;    
+	}
+
+	.fixTableHead thead th {    
+	position: sticky;
+	top: 0;
+    
+	}
+    table {
+        margin-left: 4px;
+        border-collapse: collapse;
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+    }
+    td {
+        padding: 8px 15px;
+        border: 2px solid #529432;
+        font-weight:bold;
+        font-family:Arial;
+        font-size: 12 px;
+        color: black;
+    }
+    th {
+        border: 2px solid #94324f;
+        font-size: 14px;
+        padding: 5px;
+        font-family: Verdana;
+        background: #e1eaeb;
+        color: black;
+    }
+
+    
+
+</style>
+</head>
+
+<body>
+ <div id="filter" >
+  Sorting Searching   
+ </div>   
+<div class="fixTableHead w-auto" >
+
+  <table >
+
+	<thead >
+		<tr >
+            <th style="text-align: left; padding: 8px 15px;">User Name</th>
+            <th style="text-align: center;">Email_ID</th>
+            <th style="text-align: center;">Department</th>            
+            <th style="text-align: center;" colspan="3">Actions&nbsp;</th>
+        </tr>
+	</thead>
+
+	<tbody>
+
+        {% for faculty in faculties %}
+		<tr>
+		<td>{{faculty.username}}</td>
+		<td>{{faculty.email}}</td>
+           {% for faculty in faculty.department.all %}
+              
+               <td>{{ faculty }}</td>
+             
+           {% endfor %}
+        <!-- <td>{{faculty.department}}</td>                        -->
+        <td><a style="color:blue;" href="{% url 'update-faculty' faculty.id %}">Edit</a></td>
+        <td><a style="color:blue;" href="{% url 'view-faculty' faculty.id %}">View</a></td>
+        <td><a style="color:red;" href="{% url 'delete-faculty' faculty.id %}">Delete</a></td>
+
+		</tr>
+        {% endfor %}
+    </tbody>
+
+ </table>
+ 
+</div>
+
+<div id="extra">
+
+</div>
+
+</body>
+
+</html>
+{% endblock content %}

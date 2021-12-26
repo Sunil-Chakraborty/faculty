@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <!-- Mumble UI -->
+  <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+  <!-- Dev Search UI -->
+  <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Testing Project</title>
+
+  <style>
+    #main{
+      margin-left:5px;
+      padding-top: .2px;      
+      height:65px;
+      background-color:rgb(218, 153, 33);
+      color:black;
+      text-align: center;
+      font-weight:bold;
+      font-family:Arial;
+      font-size: 12 px;
+    }
+  </style>
+
+</head>
+
+<body> 
+    <div id="main">  
+      <a class="navbar-brand" style="padding-top:5px;"><img src="{% static 'images/ju_logo.jpg' %}" style="width:215px;height:55px;" class="img-responsive logo">
+      </a>
+    <h1>Welcome to Faculty eBoard</h1>
+    </div> 
+
+    
+    
+    {% include 'nav1.html' %}
+
+
+    {% block content %}
+
+
+
+    {% endblock content %}
+
+    <br>
+    <hr>
+    <div style="height: 50px; background-color: greenyellow;">
+      Footer
+    </div>
+    
+    
+</body>
+</html>

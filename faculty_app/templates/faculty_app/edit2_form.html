@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+  .form{
+    display: block;
+    width:900px;
+    background-color: rgb(195, 217, 226);
+  }
+  .fixTableHead {
+    margin: 5px ;
+	  overflow-y: auto;
+	  height: 279px;
+    background-color: white;    
+	}
+
+  .fixTableHead thead th {    
+    position: sticky;
+    top: 0;
+      
+  }
+  
+</style>
+<main class="formPage my-xl">
+    <div class="content-box">
+
+            <a class="backButton"  href="{% url 'faculty' %}"><i class="fa fa-angle-left" style="font-size:48px;color:red"></i></a>            
+            <h3>Update Details</h3>
+            <br>
+          
+            <form class="form fixTableHead w-auto" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="col-md-2">User Name</th>                        
+                      <th class="col-md-3">Email</th>
+                      <th></th>
+                      <th class="col-md-7">Department</th>                        
+                    </tr>
+                  </thead>
+                  <tbody>                     
+
+                    <tr>
+                      
+                      <td>{{ form.username }}</td>                        
+                      <td>{{ form.email }}</td>
+                      <td></td>
+                      <td>{{ form.department }}</td>
+                                              
+                    </tr>
+                  </tbody>
+              </table>
+
+              <input class="btn btn--sub btn--lg  btn-primary" type="submit" value="Submit" />
+          
+            </form>
+            
+      
+    </div>
+</main>
+
+
+
+{% endblock %}

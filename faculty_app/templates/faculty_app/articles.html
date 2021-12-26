@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+
+    <section>
+
+        <div class="container">
+          <div class="grid grid--three">
+
+            {% for article in articles %}
+              <div class="column">             
+                <br>
+                <h3 class="project__title">{{article.headline}}</h3>
+
+                <div class="project__tags">
+                  {% for item in article.publications.all %}            
+                    <span class="tag tag--pill tag--main">
+                      <b>{{item}}</b>
+                    </span> 
+                  {% endfor %} 
+                </div> 
+
+              </div>
+
+            {% endfor %} 
+          </div>
+        </div>
+
+      </section>
+
+ </main>
+
+
+{% endblock content %}

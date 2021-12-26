@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+{{ form.errors }}
+{{ form.non_field_errors }}
+
+<style>
+
+    .fixTableHead {
+        margin-left:130px;
+        height: 450px;
+        width: 350px;    
+    }
+
+
+    .container {
+        margin: 5px auto;               
+        padding: 5px;
+        color: #0c0c0c;
+        font-family: Verdana, Geneva, sans-serif;
+    }
+    .centered{
+      margin: 0 auto;
+    }
+    .rightaligned{
+      margin-right: 0;
+      margin-left: auto;
+    }
+  
+  
+    table, th {
+        border: 1px solid rgb(240, 239, 243);
+        border-collapse: collapse;
+        color: black;
+        padding: 10px;
+        width: 250px;
+        text-align:left;
+    }
+    td {
+      padding: 5px;
+      font-weight: bold;      
+    }
+    td textarea {
+      resize: none;
+      height: 10em;
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
+    td:hover {
+      background-color: rgb(211, 195, 252);
+    }
+
+</style>
+
+<main> 
+    <div class="container">  
+          
+            <a class="backButton"  href="{% url 'faculty' %}"><i class="fa fa-angle-left" style="font-size:48px;color:red"></i></a>            
+            <h3>Update Details</h3>
+            <form class="form__field"  method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="fixTableHead w-auto" style="float:left; margin-left:5px;"> 
+
+                      
+              
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th style="width:30%;">User Name</th>                        
+                        <th style="width:20%;">Email</th>
+                        <th style="width:50%;">Department</th>                        
+                      </tr>
+                    </thead>
+                    <tbody>                     
+
+                      <tr>
+                        <td>{{ form.username }}</td>                        
+                        <td>{{ form.email }}</td>
+                        <td>{{ form.department }}</td>                        
+                      </tr>
+                      
+                     
+                    </tbody>
+                </table>
+
+                <input class="btn btn-success" type="submit" value="Submit" />
+              </div> 
+
+            </form>
+               
+    </div>
+
+</main>
+
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<main>
+
+    <section>
+        <div class="container">
+          <div class="grid grid--three">
+
+          {% for student in students %}
+
+            <div class="column">              
+                <br>
+                    <h3 class="project__title">{{student.username}}</h3>
+                     Mobile No. :{{student.mobile}} <br>                     
+                     Email      : {{student.email}} <br>
+                     Total Marks: {{student.tot_marks}}
+                    
+          {% endfor %}                  
+                  
+                       
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+ </main>
+
+{% endblock content %}

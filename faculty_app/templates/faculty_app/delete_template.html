@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .fixTableHead {           
+        height: 250px;    
+    }
+    section {
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-top: 150px;        
+        margin-left: 80px;
+        text-align: center;
+    }
+    #extra{
+        height:200px;        
+    } 
+
+</style>
+<div>
+<form class="fixTableHead" action="" method='POST'>
+    {% csrf_token %}
+    <section>Are you sure you want to delete "{{obj.username}}" ?
+        <br>
+        <a href="{% url 'faculty' %}">Go Back</a>
+        <input  type="submit" value="Confirm"/>
+    </section>
+</form>
+</div>
+<div id="extra">
+
+</div>
+{% endblock %}
